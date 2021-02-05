@@ -6,7 +6,7 @@
 /*   By: atourret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:53:25 by atourret          #+#    #+#             */
-/*   Updated: 2021/02/05 15:21:05 by atourret         ###   ########lyon.fr   */
+/*   Updated: 2021/02/05 17:27:42 by atourret         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	init_bis(t_data *data)
 	data->sky_r = 0;
 	data->sky_g = 0;
 	data->sky_b = 0;
+	data->y = 0;
+	data->x = 0;
 }
 
 void	init(t_data *data)

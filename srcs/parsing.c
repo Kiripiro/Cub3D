@@ -6,7 +6,7 @@
 /*   By: atourret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:28:19 by atourret          #+#    #+#             */
-/*   Updated: 2021/02/05 15:32:17 by atourret         ###   ########lyon.fr   */
+/*   Updated: 2021/02/05 18:00:26 by atourret         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		verif_pre_treatment(t_data *data)
 	return (1);
 }
 
-int		parsing(t_data *data, char *path)
+void	parsing(t_data *data, char *path)
 {
 	int		verif;
 	t_list	*lst;
@@ -81,6 +81,8 @@ int		parsing(t_data *data, char *path)
 		}
 	}
 	make_map(data, head);
+	flood_fill(data, data->y, data->x);
+	clean_map(data);
 	dprintf(1, "\n|%d %d|\n", data->length, data->width);
 	dprintf(1, "|%s|\n", data->no);
 	dprintf(1, "|%s|\n", data->so);
@@ -89,19 +91,18 @@ int		parsing(t_data *data, char *path)
 	dprintf(1, "|%s|\n", data->s);
 	dprintf(1, "|%d,%d,%d|\n", data->floor_r, data->floor_g, data->floor_b);
 	dprintf(1, "|%d,%d,%d|\n", data->sky_r, data->sky_g, data->sky_b);
-	dprintf(1, "\n|%s|\n", data->map[0]);
-	dprintf(1, "|%s|\n", data->map[1]);
-	dprintf(1, "|%s|\n", data->map[2]);
-	dprintf(1, "|%s|\n", data->map[3]);
-	dprintf(1, "|%s|\n", data->map[4]);
-	dprintf(1, "|%s|\n", data->map[5]);
-	dprintf(1, "|%s|\n", data->map[6]);
-	dprintf(1, "|%s|\n", data->map[7]);
-	dprintf(1, "|%s|\n", data->map[8]);
-	dprintf(1, "|%s|\n", data->map[9]);
-	dprintf(1, "|%s|\n", data->map[10]);
-	dprintf(1, "|%s|\n", data->map[11]);
-	dprintf(1, "|%s|\n", data->map[12]);
-	dprintf(1, "|%s|\n", data->map[13]);
-	return (0);
+	dprintf(1, "\n%s\n", data->map[0]);
+	dprintf(1, "%s\n", data->map[1]);
+	dprintf(1, "%s\n", data->map[2]);
+	dprintf(1, "%s\n", data->map[3]);
+	dprintf(1, "%s\n", data->map[4]);
+	dprintf(1, "%s\n", data->map[5]);
+	dprintf(1, "%s\n", data->map[6]);
+	dprintf(1, "%s\n", data->map[7]);
+	dprintf(1, "%s\n", data->map[8]);
+	dprintf(1, "%s\n", data->map[9]);
+	dprintf(1, "%s\n", data->map[10]);
+	dprintf(1, "%s\n", data->map[11]);
+	dprintf(1, "%s\n", data->map[12]);
+	dprintf(1, "%s\n", data->map[13]);
 }
