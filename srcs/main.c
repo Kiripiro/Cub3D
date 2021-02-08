@@ -6,7 +6,7 @@
 /*   By: atourret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:53:25 by atourret          #+#    #+#             */
-/*   Updated: 2021/02/05 17:27:42 by atourret         ###   ########lyon.fr   */
+/*   Updated: 2021/02/08 13:10:39 by atourret         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	init(t_data *data)
 int		main(int ac, char **av)
 {
 	t_data	data;
+
 	if (ac != 2)
 	{
 		puts("Veuillez entrer un seul argument.");

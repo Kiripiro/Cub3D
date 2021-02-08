@@ -6,7 +6,7 @@
 /*   By: atourret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 15:28:19 by atourret          #+#    #+#             */
-/*   Updated: 2021/02/05 18:00:26 by atourret         ###   ########lyon.fr   */
+/*   Updated: 2021/02/08 14:36:37 by atourret         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	parsing(t_data *data, char *path)
 	dprintf(1, "|%s|\n", data->s);
 	dprintf(1, "|%d,%d,%d|\n", data->floor_r, data->floor_g, data->floor_b);
 	dprintf(1, "|%d,%d,%d|\n", data->sky_r, data->sky_g, data->sky_b);
-	dprintf(1, "\n%s\n", data->map[0]);
+/*	dprintf(1, "\n%s\n", data->map[0]);
 	dprintf(1, "%s\n", data->map[1]);
 	dprintf(1, "%s\n", data->map[2]);
 	dprintf(1, "%s\n", data->map[3]);
@@ -104,5 +104,5 @@ void	parsing(t_data *data, char *path)
 	dprintf(1, "%s\n", data->map[10]);
 	dprintf(1, "%s\n", data->map[11]);
 	dprintf(1, "%s\n", data->map[12]);
-	dprintf(1, "%s\n", data->map[13]);
+	dprintf(1, "%s\n", data->map[13]);*/
 }

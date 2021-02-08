@@ -6,11 +6,39 @@
 /*   By: atourret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:33:14 by atourret          #+#    #+#             */
-/*   Updated: 2021/02/05 18:00:27 by atourret         ###   ########lyon.fr   */
+/*   Updated: 2021/02/08 14:36:38 by atourret         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cub3d.h"
+
+void    aff_map(t_data *data)
+{
+    int    x;
+    int    y;
+
+	y = 0;
+    while (data->map[y])
+    {
+        x = 0;
+        while (data->map[y][x])
+        {
+            if (data->map[y][x] == ' ')
+                printf("\033[31m░\033[0m");
+            else if (data->map[y][x] == '|') 
+                printf("\033[34m█\033[0m");
+            else if (data->map[y][x] == '.')
+                printf("\033[%d;%d;%dm┼\033[0m", 128, 25, 22);
+            else if (data->map[y][x] == '$')
+                printf("\033[33m☺\033[0m");
+            else if (ft_ischar("NSEW", data->map[y][x]))
+                printf("\033[33m℗\033[0m");
+            x++;
+        }
+        printf("\n");
+        y++;
+    }
+}
 
 void	clean_map(t_data *data)
 {
@@ -29,28 +57,29 @@ void	clean_map(t_data *data)
 		}
 		y++;
 	}
+	aff_map(data);
 }
 
-void    flood_fill(t_data *data, int i, int n)
+void    flood_fill(t_data *data, int y, int x)
 {
-    if (i < 0 || n < 0 || i > (data->nb_line - 1) || \
-        n > (ft_strlen(data->map[i]) - 1))
+    if (y < 0 || x < 0 || y > (data->nb_line - 1) || \
+        x > (ft_strlen(data->map[y]) - 1))
         err(data, "La map n'est pas valide.", 0);
-    if (ft_ischar("|.?" ,data->map[i][n]))
+    if (ft_ischar("|.?" ,data->map[y][x]))
         return ;
-    if (data->map[i][n] == '1')
+    if (data->map[y][x] == '1')
     {
-        data->map[i][n] = '|';
+        data->map[y][x] = '|';
         return ;
     }
-    if (data->map[i][n] == '0')
-        data->map[i][n] = '.';
-    if (data->map[i][n] == '2')
-        data->map[i][n] = '$';
-    flood_fill(data, i - 1, n);
-    flood_fill(data, i + 1, n);
-    flood_fill(data, i, n - 1);
-    flood_fill(data, i, n + 1);
+    if (data->map[y][x] == '0')
+        data->map[y][x] = '.';
+    if (data->map[y][x] == '2')
+        data->map[y][x] = '$';
+    flood_fill(data, y - 1, x);
+    flood_fill(data, y + 1, x);
+    flood_fill(data, y, x - 1);
+    flood_fill(data, y, x + 1);
 }
 
 void	find_spawn(t_data *data, char c, int y, int x)
@@ -93,5 +122,6 @@ int		make_map(t_data *data, t_list *head)
 		head = head->next;
 		y++;
 	}
+	data->map[y] = 0;
 	return (1);
 }
